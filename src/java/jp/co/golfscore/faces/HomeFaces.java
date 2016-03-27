@@ -10,6 +10,7 @@ import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import jp.co.golfscore.control.CompListBusinessLogic;
 import jp.co.golfscore.entity.CompEntity;
 import jp.co.golfscore.entity.ScoreEntity;
@@ -20,7 +21,7 @@ import jp.co.golfscore.entity.ScoreEntity;
  */
 @ManagedBean
 @Named
-@RequestScoped
+@SessionScoped
 public class HomeFaces {
 
     private List<CompEntity> _compList;
@@ -44,7 +45,7 @@ public class HomeFaces {
     
     public List<ScoreEntity> scoreListManage() {
          System.out.println( "scoreListManageが呼ばれました！引数は" );
-//         _compList = _compListBusinessLogic.getCompList();
+         _scoreList = _compListBusinessLogic.getScoreList();
          return _scoreList;
     }
     
